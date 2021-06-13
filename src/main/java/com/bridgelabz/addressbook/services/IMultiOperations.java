@@ -8,5 +8,7 @@ public interface IMultiOperations {
     void openAddressBook(String name);
 
 
+    void searchCity(String city);
 
+    void searchState(String state);
 }
