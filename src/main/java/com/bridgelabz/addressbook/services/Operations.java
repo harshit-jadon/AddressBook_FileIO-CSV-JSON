@@ -88,5 +88,13 @@ public class Operations implements IOperations{
 
     }
 
+    @Override
+    public void noOfPersonInCityy(List<Person> contacts, String noOfPersonInCity) {
+        System.out.println(contacts.stream().filter(n->n.getCity().equalsIgnoreCase(noOfPersonInCity)).count() +" Contacts from " + noOfPersonInCity);
+    }
 
+    @Override
+    public void noOfPersonInStatee(List<Person> contacts, String noOfPersonInState) {
+        System.out.println(contacts.stream().filter(n->n.getCity().equalsIgnoreCase(noOfPersonInState)).count() +" Contacts from " + noOfPersonInState);
+    }
 }

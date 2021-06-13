@@ -15,5 +15,7 @@ public interface IOperations {
     void deleteContact(String first_name, String last_name,List<Person> contacts);
 
 
+    void noOfPersonInCityy(List<Person> contacts, String noOfPersonInCity);
 
+    void noOfPersonInStatee(List<Person> contacts, String noOfPersonInState);
 }

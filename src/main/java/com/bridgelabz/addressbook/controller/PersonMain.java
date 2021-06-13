@@ -19,6 +19,10 @@ public class PersonMain {
             System.out.println("PRESS 2 (FOR DISPLAY CONTACT)");
             System.out.println("PRESS 3 (FOR EDIT CONTACT)");
             System.out.println("PRESS 4 (FOR DELETE CONTACT)");
+            System.out.println("PRESS 5 (FOR NUMBER OF PERSON in that CITY)");
+            System.out.println("PRESS (FOR NUMBER OF PERSON in that STATE)");
+
+
             System.out.println("PRESS 9 (FOR EXIT CONTACT)");
             response = scanner.nextInt();
             switch(response){
@@ -42,6 +46,16 @@ public class PersonMain {
                     System.out.println("Enter Last Name");
                     String deleteL = scanner.next();
                     operations.deleteContact(deleteN,deleteL,contacts);
+                    break;
+                case 5:
+                    System.out.println("Enter City name");
+                    String noOfPersonInCity = scanner.next();
+                    operations.noOfPersonInCityy(contacts, noOfPersonInCity);
+                    break;
+                case 6:
+                    System.out.println("Enter State name");
+                    String noOfPersonInState = scanner.next();
+                    operations.noOfPersonInStatee(contacts, noOfPersonInState);
                     break;
                 default:
                     break;
