@@ -2,14 +2,15 @@ package com.bridgelabz.addressbook.services;
 
 import com.bridgelabz.addressbook.entity.Person;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Operations implements IOperations{
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Person> contacts = new ArrayList<>();
+//    ArrayList<Person> contacts = new ArrayList<>();
 
     @Override
-    public void addContact() {
+    public void addContact(List<Person> contacts) {
         Person person = new Person();
         System.out.println("First Name");
         person.setFirst_name(scanner.nextLine());
@@ -30,13 +31,13 @@ public class Operations implements IOperations{
         contacts.add(person);
     }
     @Override
-        public void displayContact(){
+        public void displayContact(List<Person> contacts){
         for(int i= 0; i< contacts.size(); i++){
             System.out.println(contacts.get(0).toString());
         }
     }
     @Override
-    public void editContact(String first_name, String last_name) {
+    public void editContact(String first_name, String last_name,List<Person> contacts) {
         System.out.println("Enter First Name");
         String editNa = scanner.nextLine();
         System.out.println("Enter Last Name");
@@ -71,7 +72,7 @@ public class Operations implements IOperations{
             System.out.println("Contact Not found");
     }
     @Override
-    public void deleteContact(String first_name, String last_name) {
+    public void deleteContact(String first_name, String last_name,List<Person> contacts) {
         int flag = 0;
         for (Person contact : contacts) {
             if (contact.getFirst_name().equalsIgnoreCase(first_name) && contact.getLast_name().equalsIgnoreCase(last_name)) {

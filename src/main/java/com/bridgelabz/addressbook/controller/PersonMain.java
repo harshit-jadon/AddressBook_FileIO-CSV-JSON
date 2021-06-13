@@ -4,14 +4,16 @@ import com.bridgelabz.addressbook.entity.Person;
 import com.bridgelabz.addressbook.services.IOperations;
 import com.bridgelabz.addressbook.services.Operations;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class PersonMain {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Address Book");
+//    public static void main(String[] args) {
+//        System.out.println("Welcome to Address Book");
+    public void operationsMethod(List<Person> contacts){
         Scanner scanner = new Scanner(System.in);
         IOperations operations = new Operations();
-        int response = 0;
+        int response;
         do{
             System.out.println("PRESS 1 (FOR ADD CONTACT)");
             System.out.println("PRESS 2 (FOR DISPLAY CONTACT)");
@@ -21,25 +23,25 @@ public class PersonMain {
             response = scanner.nextInt();
             switch(response){
                 case 1:
-                    operations.addContact();
-                    operations.displayContact();
+                    operations.addContact(contacts);
+                    operations.displayContact(contacts);
                     break;
                 case 2:
-                    operations.displayContact();
+                    operations.displayContact(contacts);
                     break;
                 case 3:
                     System.out.println("Enter First Name");
                     String editN = scanner.next();
                     System.out.println("Enter last name");
                     String editL = scanner.next();
-                    operations.editContact(editN,editL);
+                    operations.editContact(editN,editL,contacts);
                     break;
                 case 4:
                     System.out.println("Enter First Name");
                     String deleteN = scanner.next();
                     System.out.println("Enter Last Name");
                     String deleteL = scanner.next();
-                    operations.deleteContact(deleteN,deleteL);
+                    operations.deleteContact(deleteN,deleteL,contacts);
                     break;
                 default:
                     break;
