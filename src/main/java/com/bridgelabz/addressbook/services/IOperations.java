@@ -1,10 +1,6 @@
 package com.bridgelabz.addressbook.services;
 
 
-import com.bridgelabz.addressbook.entity.Person;
-
-import java.util.List;
-
 public interface IOperations {
     void addContact();
 
