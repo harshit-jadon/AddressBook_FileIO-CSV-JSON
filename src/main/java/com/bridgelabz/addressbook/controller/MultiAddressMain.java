@@ -12,7 +12,6 @@ public class MultiAddressMain {
         IMultiOperations multiOperations = new MultiOperations();
         int response;
         do{
-            scanner.nextLine();
             System.out.println("PRESS 1 (for ADD New Address Book)");
             System.out.println("PRESS 2 (for SHOW All Address Book)");
             System.out.println("PRESS 3 (for OPEN Address Book)");

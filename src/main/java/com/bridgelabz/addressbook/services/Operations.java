@@ -2,13 +2,13 @@ package com.bridgelabz.addressbook.services;
 
 import com.bridgelabz.addressbook.entity.Person;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Operations implements IOperations{
     Scanner scanner = new Scanner(System.in);
 //    ArrayList<Person> contacts = new ArrayList<>();
-
     @Override
     public void addContact(List<Person> contacts) {
         Person person = new Person();
@@ -85,16 +85,25 @@ public class Operations implements IOperations{
             System.out.println("Contact deleted successfully");
         else
             System.out.println("Contact Not found");
-
     }
-
     @Override
     public void noOfPersonInCityy(List<Person> contacts, String noOfPersonInCity) {
         System.out.println(contacts.stream().filter(n->n.getCity().equalsIgnoreCase(noOfPersonInCity)).count() +" Contacts from " + noOfPersonInCity);
     }
-
     @Override
     public void noOfPersonInStatee(List<Person> contacts, String noOfPersonInState) {
         System.out.println(contacts.stream().filter(n->n.getCity().equalsIgnoreCase(noOfPersonInState)).count() +" Contacts from " + noOfPersonInState);
+    }
+    @Override
+    public void sortName(List<Person> contacts) {
+        contacts.stream().sorted(Comparator.comparing(Person::getFirst_name).thenComparing(Person::getLast_name)).forEach(System.out::println);
+    }
+    @Override
+    public void sortCity(List<Person> contacts) {
+        contacts.stream().sorted(Comparator.comparing(Person::getCity)).forEach(System.out::println);
+    }
+    @Override
+    public void sortState(List<Person> contacts) {
+        contacts.stream().sorted(Comparator.comparing(Person::getState)).forEach(System.out::println);
     }
 }

@@ -20,8 +20,8 @@ public class PersonMain {
             System.out.println("PRESS 3 (FOR EDIT CONTACT)");
             System.out.println("PRESS 4 (FOR DELETE CONTACT)");
             System.out.println("PRESS 5 (FOR NUMBER OF PERSON in that CITY)");
-            System.out.println("PRESS (FOR NUMBER OF PERSON in that STATE)");
-
+            System.out.println("PRESS 6 (FOR NUMBER OF PERSON in that STATE)");
+            System.out.println("PRESS 7 (FOR SORT CONTACT by NAME, CITY, STATE)");
 
             System.out.println("PRESS 9 (FOR EXIT CONTACT)");
             response = scanner.nextInt();
@@ -56,6 +56,23 @@ public class PersonMain {
                     System.out.println("Enter State name");
                     String noOfPersonInState = scanner.next();
                     operations.noOfPersonInStatee(contacts, noOfPersonInState);
+                    break;
+                case 7:
+                    char sorted;
+                    sorted = scanner.nextLine().charAt(0);
+                    switch (sorted){
+                        case 'N':
+                            operations.sortName(contacts);
+                            break;
+                        case 'C':
+                            operations.sortCity(contacts);
+                            break;
+                        case 'S':
+                            operations.sortState(contacts);
+                            break; 
+                            default:
+                                break;
+                    }
                     break;
                 default:
                     break;

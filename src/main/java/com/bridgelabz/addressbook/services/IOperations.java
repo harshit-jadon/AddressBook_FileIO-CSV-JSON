@@ -18,4 +18,10 @@ public interface IOperations {
     void noOfPersonInCityy(List<Person> contacts, String noOfPersonInCity);
 
     void noOfPersonInStatee(List<Person> contacts, String noOfPersonInState);
+
+    void sortName(List<Person> contacts);
+
+    void sortCity(List<Person> contacts);
+
+    void sortState(List<Person> contacts);
 }
