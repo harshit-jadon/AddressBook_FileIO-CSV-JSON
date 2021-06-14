@@ -1,14 +1,12 @@
 package com.bridgelabz.addressbook.services;
 
 import com.bridgelabz.addressbook.entity.Person;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Operations implements IOperations{
     Scanner scanner = new Scanner(System.in);
-//    ArrayList<Person> contacts = new ArrayList<>();
     @Override
     public void addContact(List<Person> contacts) {
         Person person = new Person();

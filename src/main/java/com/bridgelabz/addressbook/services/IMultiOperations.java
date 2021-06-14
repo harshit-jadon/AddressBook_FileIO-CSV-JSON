@@ -10,4 +10,6 @@ public interface IMultiOperations {
     void searchCity(String city);
 
     void searchState(String state);
+
+    void writeTextFile(String name, String fileName);
 }

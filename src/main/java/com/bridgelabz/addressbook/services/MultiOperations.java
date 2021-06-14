@@ -2,6 +2,7 @@ package com.bridgelabz.addressbook.services;
 
 import com.bridgelabz.addressbook.controller.PersonMain;
 import com.bridgelabz.addressbook.entity.Person;
+import com.bridgelabz.addressbook.fileio.FileIO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,5 +41,11 @@ public class MultiOperations implements IMultiOperations{
             List<Person> contacts = addressBook.get(searchState.getKey());
             contacts.stream().filter(n -> n.getCity().equalsIgnoreCase(state)).forEach(System.out::println);
         }
+    }
+    @Override
+    public void writeTextFile(String name, String fileName) {
+        FileIO fileIO = new FileIO();
+        fileIO.writeTextFile(addressBook.get(name),fileName);
+
     }
 }

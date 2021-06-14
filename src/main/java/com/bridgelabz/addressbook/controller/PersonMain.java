@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PersonMain {
-//    public static void main(String[] args) {
-//        System.out.println("Welcome to Address Book");
+
     public void operationsMethod(List<Person> contacts){
         Scanner scanner = new Scanner(System.in);
         IOperations operations = new Operations();
@@ -21,9 +20,10 @@ public class PersonMain {
             System.out.println("PRESS 4 (FOR DELETE CONTACT)");
             System.out.println("PRESS 5 (FOR NUMBER OF PERSON in that CITY)");
             System.out.println("PRESS 6 (FOR NUMBER OF PERSON in that STATE)");
-            System.out.println("PRESS 7 (FOR SORT CONTACT by NAME, CITY, STATE)");
-
-            System.out.println("PRESS 9 (FOR EXIT CONTACT)");
+            System.out.println("PRESS 7 (FOR SORT CONTACT by NAME)");
+            System.out.println("PRESS 8 (FOR SORT CONTACT by CITY )");
+            System.out.println("PRESS 9 (FOR SORT CONTACT by STATE)");
+            System.out.println("PRESS 10 (FOR EXIT CONTACT)");
             response = scanner.nextInt();
             switch(response){
                 case 1:
@@ -58,25 +58,17 @@ public class PersonMain {
                     operations.noOfPersonInStatee(contacts, noOfPersonInState);
                     break;
                 case 7:
-                    char sorted;
-                    sorted = scanner.nextLine().charAt(0);
-                    switch (sorted){
-                        case 'N':
-                            operations.sortName(contacts);
-                            break;
-                        case 'C':
-                            operations.sortCity(contacts);
-                            break;
-                        case 'S':
-                            operations.sortState(contacts);
-                            break; 
-                            default:
-                                break;
-                    }
+                    operations.sortName(contacts);
+                    break;
+                case 8:
+                    operations.sortCity(contacts);
+                    break;
+                case 9:
+                    operations.sortState(contacts);
                     break;
                 default:
                     break;
             }
-        }while(response !=9);
+        }while(response !=10);
     }
 }
