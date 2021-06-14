@@ -46,6 +46,12 @@ public class MultiOperations implements IMultiOperations{
     public void writeTextFile(String name, String fileName) {
         FileIO fileIO = new FileIO();
         fileIO.writeTextFile(addressBook.get(name),fileName);
-
     }
+
+    @Override
+    public void readTextFile(String fileName) {
+        FileIO fileIO = new FileIO();
+        fileIO.readTextFile(fileName);
+    }
+
 }

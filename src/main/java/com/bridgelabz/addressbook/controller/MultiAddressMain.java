@@ -18,6 +18,7 @@ public class MultiAddressMain {
             System.out.println("PRESS 4 (for SEARCH CONTACT by CITY in Address Book)");
             System.out.println("PRESS 5 (for SEARCH CONTACT by STATE in Address Book)");
             System.out.println("PRESS 6 (for WRITE TEXT FILE)");
+            System.out.println("PRESS 7 (for READ TEXT FILE)");
             System.out.println("PRESS 9 (for EXIT Address Book)");
             response = scanner.nextInt();
             switch (response){
@@ -53,6 +54,11 @@ public class MultiAddressMain {
                     System.out.println("Enter Name of Text File");
                     String textFile = scanner.next();
                     multiOperations.writeTextFile(writeFile,textFile);
+                    break;
+                case 7:
+                    System.out.println("Enter File Name to Read");
+                    String readFile = scanner.next();
+                    multiOperations.readTextFile(readFile);
                     break;
                 default:
                     break;
