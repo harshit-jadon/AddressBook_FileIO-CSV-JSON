@@ -4,9 +4,11 @@ import com.bridgelabz.addressbook.controller.PersonMain;
 import com.bridgelabz.addressbook.entity.Person;
 import com.bridgelabz.addressbook.thirdpartylibraries.CSVLibrary;
 import com.bridgelabz.addressbook.thirdpartylibraries.FileIO;
+import com.bridgelabz.addressbook.thirdpartylibraries.JSONLibrary;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,6 +70,18 @@ public class MultiOperations implements IMultiOperations{
     public void readFromCSV(String fileName) {
         CSVLibrary csvLibrary = new CSVLibrary();
         csvLibrary.readFromCSV(fileName);
+    }
+
+    @Override
+    public void writeJSOn(String name, String fileName) throws IOException {
+        JSONLibrary jsonLibrary = new JSONLibrary();
+        jsonLibrary.writeJSOn((addressBook.get(name)),fileName);
+    }
+
+    @Override
+    public void readJSON(String fileName) throws FileNotFoundException {
+        JSONLibrary jsonLibrary = new JSONLibrary();
+        jsonLibrary.readJSON(fileName);
     }
 
 }

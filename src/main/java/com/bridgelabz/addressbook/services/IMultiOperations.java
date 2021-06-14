@@ -3,6 +3,7 @@ package com.bridgelabz.addressbook.services;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public interface IMultiOperations {
@@ -23,4 +24,8 @@ public interface IMultiOperations {
     void writeCSV(String name, String fileName) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException;
 
     void readFromCSV(String fileName);
+
+    void writeJSOn(String name, String fileName) throws IOException;
+
+    void readJSON(String fileName) throws FileNotFoundException;
 }

@@ -24,7 +24,9 @@ public class MultiAddressMain {
             System.out.println("PRESS 7 (for READ TEXT FILE)");
             System.out.println("PRESS 8 (for WRITE CSV FILE)");
             System.out.println("PRESS 9 (for READ CSV FILE)");
-            System.out.println("PRESS 10 (for EXIT Address Book)");
+            System.out.println("PRESS 10 (for READ JSON FILE)");
+            System.out.println("PRESS 11 (for WRITE JSON FILE)");
+            System.out.println("PRESS 12 (for EXIT Address Book)");
             response = scanner.nextInt();
             switch (response){
                 case 1:
@@ -77,11 +79,23 @@ public class MultiAddressMain {
                     String readCSV = scanner.next();
                     multiOperations.readFromCSV(readCSV);
                     break;
+                case 10:
+                    System.out.println("Enter Address Book Name ");
+                    String writeJson = scanner.next();
+                    System.out.println("Enter file to write");
+                    String writeJFile = scanner.next();
+                    multiOperations.writeJSOn(writeJson,writeJFile);
+                    break;
+                case 11:
+                    System.out.println("enter file name");
+                    String readJson = scanner.next();
+                    multiOperations.readJSON(readJson);
+                    break;
 
                 default:
                     break;
             }
-        }while(response !=10);
+        }while(response !=12);
 
     }
 
