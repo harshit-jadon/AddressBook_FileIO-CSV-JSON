@@ -1,4 +1,4 @@
-package com.bridgelabz.addressbook.fileio;
+package com.bridgelabz.addressbook.thirdpartylibraries;
 
 import com.bridgelabz.addressbook.entity.Person;
 

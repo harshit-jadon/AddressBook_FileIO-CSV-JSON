@@ -2,11 +2,14 @@ package com.bridgelabz.addressbook.controller;
 
 import com.bridgelabz.addressbook.services.IMultiOperations;
 import com.bridgelabz.addressbook.services.MultiOperations;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MultiAddressMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
         System.out.println("Welcome to Address Book");
         Scanner scanner = new Scanner(System.in);
         IMultiOperations multiOperations = new MultiOperations();
@@ -19,7 +22,9 @@ public class MultiAddressMain {
             System.out.println("PRESS 5 (for SEARCH CONTACT by STATE in Address Book)");
             System.out.println("PRESS 6 (for WRITE TEXT FILE)");
             System.out.println("PRESS 7 (for READ TEXT FILE)");
-            System.out.println("PRESS 9 (for EXIT Address Book)");
+            System.out.println("PRESS 8 (for WRITE CSV FILE)");
+            System.out.println("PRESS 9 (for READ CSV FILE)");
+            System.out.println("PRESS 10 (for EXIT Address Book)");
             response = scanner.nextInt();
             switch (response){
                 case 1:
@@ -60,10 +65,23 @@ public class MultiAddressMain {
                     String readFile = scanner.next();
                     multiOperations.readTextFile(readFile);
                     break;
+                case 8:
+                    System.out.println("Enter AddressBook");
+                    String writeCSV = scanner.next();
+                    System.out.println("Enter Name of CSV File");
+                    String csvFile = scanner.next();
+                    multiOperations.writeCSV(writeCSV,csvFile);
+                    break;
+                case 9:
+                    System.out.println("Enter File Name to Read");
+                    String readCSV = scanner.next();
+                    multiOperations.readFromCSV(readCSV);
+                    break;
+
                 default:
                     break;
             }
-        }while(response !=9);
+        }while(response !=10);
 
     }
 

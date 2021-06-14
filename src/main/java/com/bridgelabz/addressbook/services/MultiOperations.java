@@ -2,8 +2,12 @@ package com.bridgelabz.addressbook.services;
 
 import com.bridgelabz.addressbook.controller.PersonMain;
 import com.bridgelabz.addressbook.entity.Person;
-import com.bridgelabz.addressbook.fileio.FileIO;
+import com.bridgelabz.addressbook.thirdpartylibraries.CSVLibrary;
+import com.bridgelabz.addressbook.thirdpartylibraries.FileIO;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,6 +56,18 @@ public class MultiOperations implements IMultiOperations{
     public void readTextFile(String fileName) {
         FileIO fileIO = new FileIO();
         fileIO.readTextFile(fileName);
+    }
+
+    @Override
+    public void writeCSV(String name, String fileName) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+        CSVLibrary csvLibrary = new CSVLibrary();
+        csvLibrary.writeCSV(addressBook.get(name),fileName);
+    }
+
+    @Override
+    public void readFromCSV(String fileName) {
+        CSVLibrary csvLibrary = new CSVLibrary();
+        csvLibrary.readFromCSV(fileName);
     }
 
 }
